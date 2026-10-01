@@ -3016,8 +3016,8 @@ const isBirthday = today.getDate() === 10 && today.getMonth() === 9;
 
 if (heroTitle) {
   heroTitle.textContent = isBirthday
-    ? "FELIZ ANIVERSÁRIO"
-    : "LISTEN";
+    ? "FELIZ ANIVERSÁRIO, Prof. Eloisa."
+    : "ALBUMS";
 }
 
 const backToTopBtn = document.getElementById("backToTop");
