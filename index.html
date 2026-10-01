@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinyl Dual-Track Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Página inicial">M.J. MUSIC</a>
+    <div class="top-actions">
+      <nav aria-label="Navegação principal">
+        <a href="#listen">LISTEN</a>
+        <a href="#player">PLAYER</a>
+      </nav>
+
+      <button
+        id="themeBtn"
+        class="theme-toggle"
+        type="button"
+        aria-label="Mudar tema visual"
+        title="Mudar tema visual"
+      >
+        ✦ MJ CLASSIC
+      </button>
+    </div>
+  </header>
+
+  <section class="mini-player-bar" id="miniPlayer" aria-label="Player rápido">
+    <div class="mini-player-inner">
+      <div class="mini-track-info">
+        <img id="miniPlayerCover" src="assets/covers/album-1.svg" alt="">
+        <div class="mini-track-text">
+          <strong id="miniTrackTitle">Escolha uma música</strong>
+          <span id="miniAlbumTitle">—</span>
+        </div>
+      </div>
+
+      <div class="mini-player-controls">
+        <button id="miniPlayBtn" type="button" class="mini-round" aria-label="Reproduzir ou pausar">▶</button>
+        <button id="miniNextBtn" type="button" class="mini-round" aria-label="Próxima música">⏭</button>
+
+        <label class="mini-switch" title="Alternar entre vocal e instrumental">
+          <input id="miniStemSwitch" type="checkbox" aria-label="Usar versão instrumental">
+          <span class="mini-switch-track">
+            <span class="mini-switch-label mini-vocal-label">🎤</span>
+            <span class="mini-switch-label mini-inst-label">🎹</span>
+            <span class="mini-switch-knob"></span>
+          </span>
+        </label>
+
+        <div class="mini-volume">
+          <span id="miniVolumeIcon" aria-hidden="true">🔊</span>
+          <input
+            id="miniVolumeSlider"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value="80"
+            aria-label="Volume rápido"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <main>
+    <section class="hero" id="listen">
+      <div class="wave-bg" aria-hidden="true">
+        <svg viewBox="0 0 1600 220" preserveAspectRatio="none">
+          <path id="heroWavePath" d="" fill="none" stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+
+      <div class="section-inner">
+        <p class="eyebrow"></p>
+        <h1 id="heroTitle">LISTEN</h1>
+        <p class="intro">
+        </p>
+
+        <div class="album-grid" id="albumGrid"></div>
+      </div>
+    </section>
+
+    <section class="player-section" id="player">
+      <div class="player-shell">
+        <div class="now-playing">
+          <div class="mini-record">
+            <img id="playerCover" src="assets/covers/album-1.svg" alt="">
+            <span class="mini-vinyl" aria-hidden="true"></span>
+          </div>
+          <div class="track-meta">
+            <span class="status-label">NOW PLAYING</span>
+            <strong id="trackTitle">Escolha um álbum</strong>
+            <span id="albumTitle">—</span>
+          </div>
+        </div>
+
+        <canvas id="visualizer" height="88" aria-label="Visualização do áudio"></canvas>
+
+        <div class="timeline-row">
+          <span id="currentTime">0:00</span>
+          <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Posição da música">
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="controls">
+          <button id="prevBtn" type="button" aria-label="Faixa anterior">⏮</button>
+          <button id="playBtn" type="button" class="primary" aria-label="Reproduzir ou pausar">▶</button>
+          <button id="nextBtn" type="button" aria-label="Próxima faixa">⏭</button>
+
+          <div class="stem-switch" role="group" aria-label="Versão da música">
+            <button id="fullBtn" type="button" class="active">🎤 Com voz</button>
+            <button id="instBtn" type="button">🎹 Instrumental</button>
+          </div>
+
+          <div class="volume-control" aria-label="Controle de volume">
+            <button id="muteBtn" type="button" class="volume-icon" aria-label="Silenciar">🔊</button>
+            <input
+              id="volumeSlider"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value="80"
+              aria-label="Volume"
+            >
+            <span id="volumeValue" class="volume-value">80%</span>
+          </div>
+        </div>
+
+        <div class="sync-readout" aria-live="polite">
+          <span><i class="dot"></i> Faixas sincronizadas</span>
+          <span id="syncStatus">Aguardando áudio</span>
+        </div>
+
+        <ol id="trackList" class="track-list"></ol>
+
+        <div class="notice">
+          <strong>Para testar com seus arquivos:</strong>
+          coloque duas versões perfeitamente alinhadas da mesma música em
+          <code>assets/audio/...</code> e edite o objeto <code>ALBUMS</code> em <code>app.js</code>.
+          O player carrega as duas versões e inicia ambas no mesmo instante do AudioContext.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
