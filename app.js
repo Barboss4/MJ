@@ -1829,11 +1829,14 @@ function selectNormalAlbum(index) {
   loadCurrentTrack(false);
 }
 
+const SHUFFLE_COVER =
+  "https://pub-06b4533c184f435ba5edce9d544344fe.r2.dev/all/shuffle.jpg";
+
 function selectShuffleAlbum() {
   currentTrackIndex = 0;
   currentPlaylist = getAllTracksShuffled();
   currentPlaylistTitle = "All Songs";
-  currentPlaylistCover = "assets/covers/shuffle.svg";
+  currentPlaylistCover = SHUFFLE_COVER;
   isShufflePlaylist = true;
 
   renderTrackList();
@@ -1866,7 +1869,7 @@ function renderAlbums() {
       <span class="vinyl" aria-hidden="true"></span>
       <img
         class="cover"
-        src="assets/covers/shuffle.svg"
+        src="${SHUFFLE_COVER}"
         alt="Todas as músicas em ordem aleatória"
       >
     </div>
