@@ -1763,7 +1763,11 @@ let loadToken = 0;
 const THEMES = [
   { id: "classic", label: "✦ MJ CLASSIC" },
   { id: "luxury", label: "◆ BLACK & GOLD" },
-  { id: "neon", label: "⚡ 80s NEON" }
+  { id: "neon", label: "⚡ 80s NEON" },
+  { id: "moonlight", label: "🌙 MOONLIGHT" },
+  { id: "purple", label: "💜 PURPLE STAGE" },
+  { id: "crimson", label: "♦ CRIMSON" },
+  { id: "emerald", label: "🌿 EMERALD" }
 ];
 
 let currentThemeIndex = 0;
@@ -3004,7 +3008,9 @@ renderTrackList();
 updateAlbumUI();
 updateVolumeUI();
 updateMiniPlayerUI();
-applyTheme(0);
+applyTheme(
+  Math.floor(Math.random() * THEMES.length)
+);
 drawVisualizer();
 drawHeroWave();
 // loadCurrentTrack(false);
