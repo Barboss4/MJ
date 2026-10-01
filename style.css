@@ -699,3 +699,19 @@ code{font-family:Consolas,monospace}
     width:100%;
   }
 }
+
+#trackList li button {
+  color: #ffffff !important;
+}
+
+#trackList li button small {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+#trackList li.current button {
+  color: #111111 !important;
+}
+
+#trackList li.current button small {
+  color: #444444 !important;
+}
