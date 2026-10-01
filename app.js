@@ -2983,26 +2983,18 @@ seek.addEventListener(
 // INICIALIZAÇÃO
 // ============================================================
 
-// Abre o primeiro álbum por padrão,
-// mas sem tocar automaticamente.
-currentPlaylist =
-  ALBUMS[0].tracks.map(
-    (track, trackIndex) => ({
-      ...track,
-      albumTitle:
-        ALBUMS[0].title,
-      albumCover:
-        ALBUMS[0].cover,
-      originalAlbumIndex: 0,
-      originalTrackIndex: trackIndex
-    })
-  );
+// Inicia o site no modo All Songs / Shuffle
+currentTrackIndex = 0;
+currentPlaylist = getAllTracksShuffled();
 
-currentPlaylistTitle =
-  ALBUMS[0].title;
+currentPlaylistTitle = "All Songs";
 
 currentPlaylistCover =
-  ALBUMS[0].cover;
+  typeof SHUFFLE_COVER !== "undefined"
+    ? SHUFFLE_COVER
+    : currentPlaylist[0]?.albumCover || "";
+
+isShufflePlaylist = true;
 
 renderAlbums();
 renderTrackList();
