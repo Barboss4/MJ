@@ -868,3 +868,16 @@ code{font-family:Consolas,monospace}
 #backToTop:hover {
   transform: translateY(-3px);
 }
+
+.album-open {
+  color: var(--text) !important;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+}
+
+.album-open:hover {
+  color: var(--button-text) !important;
+  background: var(--accent);
+  border-color: var(--accent);
+}
